@@ -8,7 +8,9 @@ we are proposing an active learning based automated annotation system DoSA (Docu
 DoSA uses tesseract as OCR Engine. Please install it and set the path before running this system
 
 - On MacOS
+```
 brew install tesseract
+```
 
 
 ```
