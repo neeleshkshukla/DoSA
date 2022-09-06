@@ -5,6 +5,12 @@ we are proposing an active learning based automated annotation system DoSA (Docu
 
 ## Usage
 
+DoSA uses tesseract as OCR Engine. Please install it and set the path before running this system
+
+- On MacOS
+brew install tesseract
+
+
 ```
 1.pip install -r requirements.txt
 2.python generate_annotations.py -i {image_file}
