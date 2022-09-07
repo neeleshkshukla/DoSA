@@ -204,18 +204,21 @@ def main(img):
     prevtyp=typ
     prevx=x
     prevy=y
-  draw = ImageDraw.Draw(img)
-  for item in key_box.items():
-    box = unnormalize_box(item[1]['box'],width,height)
-    draw.rectangle(box, outline='green')
-    draw.text((box[0]+10, box[1]-10), item[0], outline='green', font=font)
-    filename =  str(im.filename.split('/')[-1].split('.')[0])+'_annotated'+'.jpg'
-    ## saving post processed annnotated image
 
-    im.save((os.path.join('results/final_annotated',filename)))
+  image_2 = img.convert("RGB")
+  draw = ImageDraw.Draw(image_2)
+  width, height = image_2.size
+  for item in key_box.items():
+      box = unnormalize_box(item[1]['box'], width, height)
+      draw.rectangle(box, outline='green')
+      draw.text((box[0] + 10, box[1] - 10), item[0], outline='green', fill='green', font=font)
+      filename = str(im.filename.split('/')[-1].split('.')[0]) + '_annotated' + '.jpg'
+      ## saving post processed annnotated image
+
+      image_2.save((os.path.join('results/final_annotated', filename)))
 
          
-  return img,output
+  return image_2,output
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
